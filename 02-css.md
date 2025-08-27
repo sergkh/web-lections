@@ -8,6 +8,13 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 ---
 
+<style>
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+</style>
+
  Web
 
  # Каскадні таблиці стилів
@@ -22,7 +29,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 ---
 
-Якщо в попередніх версіях (до 5-ї) *HTML* широко використовувався для налаштування оформлення сайтів: застосовувались теги такі як `<center>` для відцентрування елементів, `<font>` для визначення атрибутів шрифту, HTML-атрибути `width`, `height` та інші, то зараз вони вважаються застарілими й їх функції повністю перейшли до *CSS*. 
+Якщо в попередніх версіях (до 5-ї) *HTML* для налаштування оформлення сайтів широко застосовувались теги такі як `<center>` для відцентрування елементів, `<font>` для визначення атрибутів шрифту, HTML-атрибути `width`, `height` та інші, то зараз вони вважаються застарілими й їх функції повністю перейшли до *CSS*. 
 
 
 Задання дизайну сторінки за допомогою *CSS* надає набагато більше налаштувань зовнішнього вигляду, дозволяє використовувати вже створені стилі на інших сторінках та задавати різні стилі для різних засобів відображення (екран, друк, смартфон).
@@ -176,7 +183,7 @@ h1 { font: bold 10pt verdana; }
 Властивість `margin` становлює величину **зовнішнього** відступу від кожного краю елемента. Відступом є простір від кордону поточного елемента до внутрішньої межі його батьківського елементу. 
 `padding` - встановлює значення полів навколо вмісту елемента. Полем називається відстань від внутрішнього краю рамки елемента до уявного прямокутника, що обмежує його вміст.
 
-![width:350px](img/margin-padding.png)
+![width:350px center](img/margin-padding.png)
 
 ---
 # Відносні селектори
@@ -431,6 +438,94 @@ p {font-family: Courier, "Courier New", monospace;}
 
 ---
 
-З версткою щоденно зтикаються тисячі людей, тому звичайно вже створено багато *СSS* бібліотек та фреймворки, які допомагають розробникам створити адаптивний сайт, який крім достойного вигляду однаково добре відображатиметься на різних пристроях. Серед таких фреймворків варто звернути увагу на бібліотеку [*Boostrap*](http://getbootstrap.com), й якщо не скористатись нею, то, принаймні,проглянути як реалізовані ті чи інші елементи керування. Для неї також існує набір готових до використання частин сайту з вихідними кодами: [*Bootsnipp*](http://bootsnipp.com), та різні теми: [*Bootswatch*](https://bootswatch.com). 
+`position` : визначає як елемент буде позиціонуватись на сторінці. Деякі значення:
 
-Також достойними уваги є [*Foundation*](http://foundation.zurb.com) від компанії *Zurb* та [*Material Design*](http://www.getmdl.io) від *Google*.
+`static` `relative` `absolute` `fixed`
+
+Приклад absolute позиціонування (часто комбінується з [z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index))
+
+```css
+    .box {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        width: 100px;
+        height: 100px;
+    }
+```
+
+---
+
+# Приклад стилів: кнопки
+
+Створимо стилізовані кнопки:
+
+![width:450px center](img/css-buttons.png)
+
+```html
+<button class="primary">Зберегти</button>
+<button>Відміна</button>
+```
+
+Код прикладу:
+
+https://jsfiddle.net/sergkh/s7y0ejhq/7/
+
+---
+
+Приклад стилів: hero section
+
+https://jsfiddle.net/sergkh/bq0kgox1/17/
+
+---
+# Анімації 
+
+Властивість `transition` дозволяє зробити зміну стилів плавною, задаючи тривалість та тип анімації. [Наприклад](https://jsfiddle.net/sergkh/qu1ps3r6/), можна задати зміну кольору фону при наведенні на елемент:
+
+```css
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        transition: background-color 0.5s ease-in-out;
+    }
+
+    .box:hover { background-color: blue; }
+```
+
+---
+Синтаксис властивості `transition`.
+
+```css
+transition: property duration timing-function delay;
+```
+
+Вона є скороченням для наступних властивостей:
+
+```css
+transition-property: all | none | property-name;
+transition-duration: 0.3s;
+transition-timing-function: ease-in;
+transition-delay: 0.1s;
+```
+
+Більше прикладів: https://www.programiz.com/css/transitions також [1](https://codepen.io/web-dot-dev/pen/zYzNrJV) [2](https://codepen.io/KrzysiekF/pen/oNNLwZq) [3](https://jsfiddle.net/sergkh/hf512xr0/1/)
+
+---
+# Часові функції
+
+<small>Часові функції визначають, як змінюються властивості протягом часу анімації. Вони можуть бути задані як ключові слова або функції. Деякі з найбільш вживаних: `linear`, `ease`, `ease-in`, `ease-out`, `ease-in-out`. [1](https://www.joshwcomeau.com/animation/css-transitions/)</small>
+
+![width:450px center](img/css-timing-functions.png)
+
+---
+
+# Transition генератор
+
+https://gradienty.codes/animations
+
+---
+
+# Приклад Sidebar
+
+https://jsfiddle.net/sergkh/xqsd8co5/3/
