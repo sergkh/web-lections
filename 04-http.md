@@ -42,7 +42,7 @@ small {
 
 Для того, щоб краще зрозуміти чому засобів тільки *HTML* та *CSS* не достатньо для розробки сучасних веб-додатків й необхідно використовувати програмування, звернемось до основних етапів розвитку архітектури веб.
 
-![width:700px center](/img/web-stages.png)
+![width:700px center](img/web-stages.png)
 
 ---
 
@@ -202,14 +202,14 @@ URL (RFC 1738) - уніфікований локатор (покажчик) ре
 
 Прикладами популярних веб-серверів є Apache, Nginx, Microsoft Internet Information Services (IIS), LiteSpeed та інші.
 
-![width:750px center](/img/web-servers.png)
+![width:750px center](img/web-servers.png)
 
 ---
 # Proxy
 
 *Проксі-сервер* (проксі) — це сервер, який виступає посередником між клієнтом і іншим сервером. 
 
-![width:700px center](/img/forward-reverse-proxy.png)
+![width:700px center](img/forward-reverse-proxy.png)
 
 ---
 
@@ -255,7 +255,7 @@ server {
 ---
 # Віртуальний хостинг
 
-![width:500px center](/img/virtual-hosting.png)
+![width:500px center](img/virtual-hosting.png)
 
 Віртуальний хостинг — це метод, який дозволяє одному веб-серверу обслуговувати кілька доменів або веб-сайтів.
 
@@ -291,7 +291,7 @@ server {
 # CGI
 CGI (Common Gateway Interface) — це дещо застарілий стандарт, який дозволяє веб-серверам взаємодіяти з зовнішніми програмами для генерації динамічного контенту. CGI-програми можуть бути написані на будь-якій мові програмування.
 
-![width:700px center](/img/old-cgi.png)
+![width:700px center](img/old-cgi.png)
 
 ---
 
@@ -309,7 +309,7 @@ CGI (Common Gateway Interface) — це дещо застарілий станд
 
 FastCGI — це вдосконалена версія CGI, яка дозволяє зберігати процеси в пам'яті між запитами, що значно підвищує продуктивність. FastCGI працює як TCP-сервер, який приймає запити від веб-сервера та обробляє їх асинхронно.
 
-![width:700px center](/img/fastcgi.png)
+![width:700px center](img/fastcgi.png)
 
 ---
 
@@ -354,7 +354,7 @@ app.listen(3000, () => {
 Однак всеодно програми рідко виставляють в інтернет напряму, а ховають за зворотнім проксі-сервером, який приймає HTTPs запити від клієнтів і пересилає їх на один або кілька серверів вже як HTTP. Балансуючи навантаження, кешуючи відповіді та забезпечуючи безпеку.
 </small>
 
-![width:700px center](/img/reverse-proxy.png)
+![width:700px center](img/reverse-proxy.png)
 
 ---
 
