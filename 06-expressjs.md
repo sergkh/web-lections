@@ -276,3 +276,52 @@ app.post('/login', loginValidators, (req, res) => {
   res.send(`Logged in as ${username}`);
 });
 ```
+
+---
+
+# Відображення помилок
+
+Попередній варіант видає помилки в форматі JSON, що не дуже зручно для користувача. Кращим варіантом було б відобразити помилки на сторінці логіна. Для чого ми можемо передати помилки в шаблон EJS:
+
+```javascript
+app.post('/login', loginValidators, (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.render('login', { errors: errors.array() });
+  }
+  ...
+});
+```
+
+---
+
+Тепер для відображення помилок валідації можна використовувати EJS:
+
+```html
+<% if (locals.errors && locals.errors.length > 0) { %>
+  <div class="errors">
+    <ul>
+      <% locals.errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  </div>
+<% } %>
+```
+
+---
+
+# Передача даних в шаблон
+
+Таким чином при відображенні шаблоку ми можемо передававати будь-які об'єкти, наприклад, помилки валідації,
+обʼєкти отримані з бази даних чи будь-які інші динамічні дані, які необхідно відобразити на сторінці:
+
+```javascript
+res.render('shop', { 
+  items: [ 
+    { id: 1, name: 'Phone', price: 500 },
+    { id: 2, name: 'Tablet', price: 650 }
+  ],
+});
+```

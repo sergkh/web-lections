@@ -369,7 +369,7 @@ server {
     ssl_certificate /etc/ssl/certs/example.com.crt;
     ssl_certificate_key /etc/ssl/private/example.com.key;
 
-    location / {
+    location /kiosk/ {
         proxy_pass http://10.1.2.3:3000;
     }
 }
